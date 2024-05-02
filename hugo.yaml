@@ -33,7 +33,7 @@ params:
   disableThemeToggle: false
 
   editPost:
-    URL: "https://github.com/levpa/hugo-blog/tree/main/content/posts"
+    URL: "https://github.com/levpa/hugo-blog/tree/main/content"
     Text: "Suggest changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
