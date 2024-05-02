@@ -1,0 +1,126 @@
+baseURL: https://levarc.com/
+languageCode: en-us
+title: Lev's blog
+theme: PaperMod
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+services:
+  googleAnalytics:
+    ID: G-KWYLJH7QDH
+  disqus:
+    shortname: levarc
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: Lev's blog
+  description: "DevOps Engineer from Severodonetsk"
+  keywords: [Blog, Automation, DevOps, SRE, AWS, Azure, GCP]
+  author: Lev Pasichnyi
+  contact:
+    email: support@levarc.com
+  subtitle: all about tech
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+
+  editPost:
+    URL: "https://https://github.com/levpa/hugo-blog/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
+  comments: true
+  cover:
+    linkFullImages: true
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: false
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+  
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+
+  assets:
+    favicon: /img/favicon.ico
+    favicon16x16: /img/favicon-16x16.png
+    favicon32x32: /img/favicon-32x32.png
+    apple_touch_icon: /img/apple-touch-icon.png
+    safari_pinned_tab: /img/safari-pinned-tab.svg
+
+  label:
+    text: Lev's
+
+  # profile-mode
+  profileMode:
+    enabled: true # needs to be explicitly set
+    title: Engineer stuff
+    subtitle: Architecture, automation
+    imageUrl: /img/android-big.png
+    imageWidth: 200
+    imageHeight: 200
+    imageTitle: lev's logo
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
+
+  homeInfoParams:
+    Title: "Hi there \U0001F44B"
+    Content: Welcome to my blog
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/levpa"
+    - name: buymeacoffee
+      url: "https://buymeacoffee.com/levpa"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/levpa/"
+
+# menu:
+#   main:
+#     - identifier: categories
+#       name: categories
+#       url: /categories/
+#       weight: 10
+#     - identifier: tags
+#       name: tags
+#       url: /tags/
+#       weight: 20
+
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+pygmentsUseClasses: true
+markup:
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    # codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai
