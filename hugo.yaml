@@ -68,7 +68,7 @@ params:
     enabled: true # needs to be explicitly set
     title: Engineer stuff
     subtitle: Architecture, automation
-    imageUrl: /img/android-big.png
+    imageUrl: /img/blog_icon.png
     imageWidth: 200
     imageHeight: 200
     imageTitle: Lev's logo
