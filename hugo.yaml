@@ -63,7 +63,6 @@ params:
     distance: 1000
     threshold: 0.4
     minMatchCharLength: 0
-    # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
 
   assets:
@@ -73,9 +72,6 @@ params:
     apple_touch_icon: /img/apple-touch-icon.png
     safari_pinned_tab: /img/safari-pinned-tab.svg
 
-  label:
-    text: Lev's
-
   # profile-mode
   profileMode:
     enabled: true # needs to be explicitly set
@@ -84,7 +80,7 @@ params:
     imageUrl: /img/android-big.png
     imageWidth: 200
     imageHeight: 200
-    imageTitle: lev's logo
+    imageTitle: Lev's logo
     buttons:
       - name: Posts
         url: posts
@@ -93,26 +89,15 @@ params:
 
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Content: Welcome to tech blog
 
   socialIcons:
     - name: github
       url: "https://github.com/levpa"
-    - name: buymeacoffee
-      url: "https://buymeacoffee.com/levpa"
     - name: linkedin
       url: "https://www.linkedin.com/in/levpa/"
-
-# menu:
-#   main:
-#     - identifier: categories
-#       name: categories
-#       url: /categories/
-#       weight: 10
-#     - identifier: tags
-#       name: tags
-#       url: /tags/
-#       weight: 20
+    - name: buymeacoffee
+      url: "https://buymeacoffee.com/levpa"
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
