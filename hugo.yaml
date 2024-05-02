@@ -69,8 +69,8 @@ params:
     title: Engineer stuff
     subtitle: Architecture, automation
     imageUrl: /img/blog_icon.png
-    imageWidth: 200
-    imageHeight: 200
+    imageWidth: 250
+    imageHeight: 250
     imageTitle: Lev's logo
     buttons:
       - name: Posts
