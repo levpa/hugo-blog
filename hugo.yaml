@@ -33,8 +33,8 @@ params:
   disableThemeToggle: false
 
   editPost:
-    URL: "https://https://github.com/levpa/hugo-blog/content"
-    Text: "Suggest Changes" # edit text
+    URL: "https://github.com/levpa/hugo-blog/content"
+    Text: "Suggest changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
   comments: true
@@ -99,7 +99,6 @@ params:
     - name: buymeacoffee
       url: "https://buymeacoffee.com/levpa"
 
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
   highlight:
