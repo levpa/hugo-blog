@@ -1,7 +1,9 @@
 baseURL: https://levarc.com/
 languageCode: en-us
-title: Blog
+title: Lev's blog
 theme: PaperMod
+paginate: 5
+rssLimit: 10
 
 minify:
   disableXML: true
@@ -45,6 +47,7 @@ params:
   hideSummary: false
   showtoc: false
   tocopen: false
+  searchHidden: true
   
   fuseOpts:
     isCaseSensitive: false
@@ -61,6 +64,10 @@ params:
     favicon32x32: /img/favicon-32x32.png
     apple_touch_icon: /img/apple-touch-icon.png
     safari_pinned_tab: /img/safari-pinned-tab.svg
+    disableHLJS: true
+
+  label:
+    text: Home
 
   profileMode:
     enabled: true # needs to be explicitly set
@@ -84,7 +91,18 @@ params:
     - name: buymeacoffee
       url: "https://buymeacoffee.com/levpa"
 
-pygmentsUseClasses: true
 markup:
   highlight:
-    noClasses: false
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    hl_Lines: ""
+    hl_inline: false
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: true
+    noHl: false
+    style: monokai
+    tabWidth: 4
