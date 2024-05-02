@@ -1,6 +1,6 @@
 baseURL: https://levarc.com/
 languageCode: en-us
-title: Lev's blog
+title: Blog
 theme: PaperMod
 
 minify:
@@ -21,8 +21,6 @@ outputs:
 
 params:
   env: production
-  title: Lev's blog
-  description: "DevOps Engineer from Severodonetsk"
   keywords: [Blog, Automation, DevOps, SRE, AWS, Azure, GCP]
   author: Lev Pa
   contact:
@@ -66,9 +64,9 @@ params:
 
   profileMode:
     enabled: true # needs to be explicitly set
-    title: Engineer stuff
-    subtitle: Architecture, automation
-    imageUrl: /img/blog_icon.png
+    title: Automated
+    subtitle: Architecture, technology
+    imageUrl: /img/rounded_leo.png
     imageWidth: 250
     imageHeight: 250
     imageTitle: Lev's logo
