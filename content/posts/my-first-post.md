@@ -3,6 +3,7 @@ title = 'My First Post'
 description = 'My first post on this platform'
 date = 2024-04-28T20:55:55+03:00
 tags = ['Automation', 'DevOps', 'AWS']
+categories = ['For test', 'Code highlighting']
 cover.image = 'posts/cover.jpg'
 cover.alt = 'Severskiy Donets river'
 cover.caption = "In my neighborhood..."
