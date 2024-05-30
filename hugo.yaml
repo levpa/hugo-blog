@@ -96,8 +96,6 @@ markup:
     anchorLineNos: false
     codeFences: true
     guessSyntax: true
-    hl_Lines: ""
-    hl_inline: false
     lineAnchors: ""
     lineNoStart: 1
     lineNos: true
@@ -106,3 +104,14 @@ markup:
     noHl: false
     style: monokai
     tabWidth: 4
+
+menu:
+  main:
+    - identifier: categories
+      name: categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: tags
+      url: /tags/
+      weight: 20
