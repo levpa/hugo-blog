@@ -33,7 +33,7 @@ params:
   disableThemeToggle: false
 
   ShowReadingTime: true
-  ShowShareButtons: true
+  ShowShareButtons: false
   ShowPostNavLinks: true
   ShowBreadCrumbs: false
   ShowCodeCopyButtons: false
@@ -67,7 +67,9 @@ params:
     disableHLJS: true
 
   label:
-    text: Home
+    text: " "
+    icon: /img/apple-touch-icon.png
+    iconHeight: 40
 
   profileMode:
     enabled: true # needs to be explicitly set
@@ -115,3 +117,7 @@ menu:
       name: tags
       url: /tags/
       weight: 20
+    - identifier: aboutus
+      name: about
+      url: /posts/my-first-post/
+      weight: 30
