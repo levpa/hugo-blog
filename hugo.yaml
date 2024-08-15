@@ -76,8 +76,8 @@ params:
     title: Automated
     subtitle: Architecture, technology
     imageUrl: /img/rounded_leo.png
-    imageWidth: 250
-    imageHeight: 250
+    imageWidth: 260
+    imageHeight: 260
     imageTitle: Lev's logo
     buttons:
       - name: Posts
@@ -90,8 +90,7 @@ params:
       url: "https://github.com/levpa"
     - name: linkedin
       url: "https://www.linkedin.com/in/levpa/"
-    # - name: buymeacoffee
-    #   url: "https://buymeacoffee.com/levpa"
+
 
 markup:
   highlight:
@@ -117,7 +116,3 @@ menu:
       name: tags
       url: /tags/
       weight: 20
-    # - identifier: aboutus
-    #   name: about
-    #   url: /posts/my-first-post/
-    #   weight: 30
