@@ -23,7 +23,7 @@ outputs:
 
 params:
   env: production
-  keywords: [Blog, Automation, DevOps, SRE, AWS, Azure, GCP]
+  keywords: [Blog, Automation, DevOps, SRE, AWS, Azure, AI, LLM]
   author: Lev Pa
   contact:
     email: support@levarc.com
@@ -90,8 +90,8 @@ params:
       url: "https://github.com/levpa"
     - name: linkedin
       url: "https://www.linkedin.com/in/levpa/"
-    - name: buymeacoffee
-      url: "https://buymeacoffee.com/levpa"
+    # - name: buymeacoffee
+    #   url: "https://buymeacoffee.com/levpa"
 
 markup:
   highlight:
@@ -117,7 +117,7 @@ menu:
       name: tags
       url: /tags/
       weight: 20
-    - identifier: aboutus
-      name: about
-      url: /posts/my-first-post/
-      weight: 30
+    # - identifier: aboutus
+    #   name: about
+    #   url: /posts/my-first-post/
+    #   weight: 30
