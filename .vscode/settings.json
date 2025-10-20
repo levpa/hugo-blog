@@ -1,0 +1,34 @@
+{
+  // 🧼 Core Editor Behavior
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": [
+    "source.fixAll"
+  ],
+  "cSpell.enabled": true,
+  "cSpell.language": "en",
+  "cSpell.enabledFileTypes": {
+    "*": false,
+    "markdown": true,
+    "html": true,
+    "toml": true,
+    "yaml": true
+  },
+  "cSpell.words": [
+    "Pasichnyi"
+  ],
+  // 🧾 YAML for Hugo config
+  "yaml.validate": true,
+  "yaml.format.enable": true,
+  "yaml.schemas": {},
+  "yaml.customTags": [],
+  // 🔍 GitLens for changelog and release tracking
+  "gitlens.defaultDateFormat": "YYYY-MM-DD",
+  "gitlens.defaultTimeFormat": "HH:mm",
+  "gitlens.hovers.enabled": true,
+  "gitlens.codeLens.enabled": true,
+  "gitlens.currentLine.enabled": true,
+  "gitlens.statusBar.enabled": true,
+  // 📁 Path Intellisense for theme and asset navigation
+  "path-intellisense.autoSlashAfterDirectory": true,
+  "path-intellisense.extensionOnImport": true,
+}

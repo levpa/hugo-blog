@@ -1,0 +1,36 @@
+{
+  "name": "Hugo Blog Dev",
+  "image": "klakegg/hugo:0.151.2-ext-alpine",
+  "remoteUser": "vscode",
+  "mounts": [
+    "source=/run/host-services/ssh-auth.sock,target=/ssh-agent,type=bind",
+    "source=${env:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
+    "source=${env:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached"
+  ],
+  "containerEnv": {
+    "SSH_AUTH_SOCK": "/ssh-agent"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers-extra/features/yamllint:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "budparr.language-hugo-vscode",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "github.vscode-github-actions",
+        "eamodio.gitlens",
+        "redhat.vscode-yaml",
+        "christian-kohler.path-intellisense",
+        "davidanson.vscode-markdownlint"
+      ]
+    }
+  },
+  "forwardPorts": [
+    1313
+  ], // Hugo default dev server
+  "postCreateCommand": "git submodule update --init --recursive && hugo version"
+}
