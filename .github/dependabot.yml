@@ -5,18 +5,33 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "devcontainer"
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "ci"
 
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
-    ignore:
-      - dependency-name: "python"
-        versions: ["3.13-slim-bookworm"]
+    labels:
+      - "dependencies"
+      - "docker"
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "node"
