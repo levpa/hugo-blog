@@ -10,10 +10,6 @@
   "containerEnv": {
     "SSH_AUTH_SOCK": "/ssh-agent"
   },
-  "features": {
-    "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers-extra/features/yamllint:2": {}
-  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -31,5 +27,5 @@
   "forwardPorts": [
     1313
   ],
-  "postCreateCommand": "./scripts/boot.sh | tee .devcontainer/.boot.log"
+  "postCreateCommand": "./scripts/boot.sh"
 }

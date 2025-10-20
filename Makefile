@@ -22,10 +22,10 @@ lint:
 	@stylelint "assets/**/*.scss"
 
 	@echo "📄 Linting HTML templates..."
-	@htmlhint layouts/
+	@htmlhint layouts/ static/
 
 	@echo "📦 Linting JSON data..."
-	@jsonlint data/**/*.json
+	@jsonlint config.json
 
 precommit:
 	bash ./scripts/hook.sh

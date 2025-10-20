@@ -23,3 +23,17 @@ nvm use --lts
 
 echo "✅ Node.js version: $(node -v)"
 echo "✅ npm version: $(npm -v)"
+
+
+echo "🔧 Installing linting tools..."
+pip install --no-cache-dir --upgrade yamllint
+npm install -g markdownlint-cli htmlhint jsonlint-cli
+
+echo "✅ yamllint version: $(yamllint --version)"
+echo "✅ markdownlint version: $(markdownlint --version)"
+
+# tool versions:
+echo "Dart Sass: $(sass --version)"
+echo "Go: $(go version)"
+echo "Hugo: $(hugo version)"
+echo "Node.js: $(node --version)"
