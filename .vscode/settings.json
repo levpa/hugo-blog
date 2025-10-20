@@ -25,7 +25,7 @@
   "gitlens.defaultDateFormat": "YYYY-MM-DD",
   "gitlens.defaultTimeFormat": "HH:mm",
   "gitlens.hovers.enabled": true,
-  "gitlens.codeLens.enabled": true,
+  "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.enabled": true,
   "gitlens.statusBar.enabled": true,
   // 📁 Path Intellisense for theme and asset navigation
