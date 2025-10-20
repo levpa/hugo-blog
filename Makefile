@@ -16,7 +16,7 @@ lint:
 	@yamllint hugo.yaml
 
 	@echo "📝 Linting Markdown content..."
-	@markdownlint content/
+	@markdownlint-cli "**/*.md" --config .markdownlint.json
 
 precommit:
 	bash ./scripts/hook.sh
