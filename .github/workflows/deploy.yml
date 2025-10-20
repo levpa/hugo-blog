@@ -3,20 +3,25 @@ on:
   push:
     tags:
       - "v*"
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: false
+
 defaults:
   run:
     shell: bash
+
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      WORKDIR: blog
       DART_SASS_VERSION: 1.93.2
       GO_VERSION: 1.25.3
       HUGO_VERSION: 0.151.2
@@ -46,6 +51,8 @@ jobs:
       - name: Create directory for user-specific executable files
         run: |
           mkdir -p "${HOME}/.local"
+          echo "✅ .local path: $HOME/.local"
+          echo "✅ Hugo WORKDIR: ${{ env.WORKDIR }}"
 
       - name: Install Dart Sass
         run: |
@@ -98,7 +105,8 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
-            --cacheDir "${{ runner.temp }}/hugo_cache"
+            --cacheDir "${{ runner.temp }}/hugo_cache" \
+            --source "${{ env.WORKDIR }}"
 
       - name: Cache save
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -110,7 +118,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./public
+          path: ${{ env.WORKDIR }}/public
+
   deploy:
     environment:
       name: github-pages

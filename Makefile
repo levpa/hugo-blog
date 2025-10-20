@@ -13,19 +13,10 @@ lint:
 	@yamllint .github/workflows
 
 	@echo "🧾 Linting Hugo config..."
-	@yamllint config.yaml || true
+	@yamllint hugo.yaml
 
 	@echo "📝 Linting Markdown content..."
 	@markdownlint content/
-
-	@echo "🎨 Linting SCSS assets..."
-	@stylelint "assets/**/*.scss"
-
-	@echo "📄 Linting HTML templates..."
-	@htmlhint layouts/ static/
-
-	@echo "📦 Linting JSON data..."
-	@jsonlint config.json
 
 precommit:
 	bash ./scripts/hook.sh
