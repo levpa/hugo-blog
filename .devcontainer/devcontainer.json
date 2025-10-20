@@ -1,14 +1,19 @@
 {
   "name": "Hugo Blog Dev",
-  "image": "hugomods/hugo:debian-std-dart-sass-git-non-root-0.151.2",
-  "remoteUser": "hugo",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
   "mounts": [
     "source=/run/host-services/ssh-auth.sock,target=/ssh-agent,type=bind",
-    "source=${env:HOME}/.ssh,target=/home/hugo/.ssh,type=bind,consistency=cached",
-    "source=${env:HOME}/.gitconfig,target=/home/hugo/.gitconfig,type=bind,consistency=cached"
+    "source=${env:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached",
+    "source=${env:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind,consistency=cached"
   ],
   "containerEnv": {
     "SSH_AUTH_SOCK": "/ssh-agent"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/hugo:1": {},
+    "ghcr.io/devcontainers-extra/features/markdownlint-cli:1": {}, 
+    "ghcr.io/devcontainers-extra/features/yamllint:2": {}
   },
   "customizations": {
     "vscode": {
