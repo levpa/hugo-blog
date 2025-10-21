@@ -1,0 +1,42 @@
+# ─── Hugo ─────────────────────────────────────────────
+**/public/
+**/resources/_gen/
+**/assets/jsconfig.json
+**/*/.hugo_build.lock
+**/*/.hugo_cache/
+**/content/**/drafts/
+
+# ─── Node.js ──────────────────────────────────────────
+/node_modules/
+/npm-debug.log*
+/package-lock.json
+.env.*
+
+# ─── Python ───────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+*.sqlite3
+*.db
+*.pkl
+.venv/
+env/
+ENV/
+.mypy_cache/
+.pytest_cache/
+.coverage
+.tox/
+.cache/
+
+# ─── OS & Editor Artifacts ────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp

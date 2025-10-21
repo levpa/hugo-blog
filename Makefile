@@ -1,5 +1,20 @@
 .PHONY: chlog precommit release verify
 
+HUGO := blog
+new-post:
+	@if [ -z "$(POST)" ]; then echo "Error: POST name required"; exit 1; fi
+	hugo new post/$(POST).md -s $(HUGO)
+new-note:
+	hugo new note/$(NOTE).md -s $(HUGO)
+new-tutorial:
+	hugo new tutorial/$(TUTORIAL).md -s $(HUGO)
+new-lab:
+	hugo new lab/$(LAB).md -s $(HUGO)
+new-insight:
+	hugo new insight/$(INSIGHT).md -s $(HUGO)
+new-toolbox:
+	hugo new toolbox/$(TOOLBOX).md -s $(HUGO)
+
 verify:
 	@echo "🔍 Verifying Hugo environment..."
 	@echo "Dart Sass: $(sass --version)"

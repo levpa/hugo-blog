@@ -7,6 +7,10 @@ title: My New Hugo Site
 
 theme: "PaperMod"
 
+resources:
+  toCSS:
+    transpiler: dartsass
+
 caches:
   images:
     dir: :cacheDir/images

@@ -49,7 +49,7 @@ hugo new posts/hello-world.md
 Observe or test site locally:
 
 ```sh
-hugo serve -D
+hugo serve --buildDrafts
 
 # or execute with arguments:
 hugo --buildDrafts    # or -D
