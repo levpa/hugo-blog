@@ -4,14 +4,16 @@ date: "2025-10-21T09:48:47Z"
 draft: false
 description: "A reproducible benchmark of DNS resolution and SSL handshake latency for GitHub Pages using ALIAS records and apex domain strategies."
 slug: "dns-ssl-benchmark"
-tags: ["dns", "ssl", "github-pages", "alias-record", "latency"]
+tags: ["dns", "ssl", "github", "alias", "latency", "site"]
 categories: ["devops", "cloud", "performance"]
 author: "Lev"
 summary: "This post benchmarks DNS and SSL latency for GitHub Pages using apex-safe ALIAS records and strategic redirect setups. Includes reproducible test cases and latency charts."
-cover: "/images/dns-ssl-benchmark-cover.png"
+cover:
+  image: "/posts/cover.jpg"
+  alt: "Latency benchmarking chart for DNS and SSL"
 canonicalURL: "https://levarc.com/post/dns-ssl-benchmark"
 toc: true
-keywords: ["dns latency", "ssl handshake", "github pages performance", "alias record", "apex domain"]
+keywords: ["dns", "ssl", "latency", "github pages", "alias", "apex"]
 series: "LevArc Infrastructure Insights"
 aliases: ["/blog/dns-ssl-test", "/posts/github-pages-latency"]
 layout: "post"
@@ -32,8 +34,7 @@ When deploying branded static sites via GitHub Pages, DNS and SSL latency can ma
   - `levarc.com` → ALIAS `levpa.github.io`
   - `www.levarc.com` → ALIAS `levpa.github.io`
 - **Tools used**:
-  - `dig`, `curl`, `openssl s_client`
-  - [whatsmydns.net](https://www.whatsmydns.net/)
+  - `dig`, `curl`, `openssl s_client`,`time`
   - Custom Makefile targets for latency logging
 
 ## 📊 Results
@@ -56,28 +57,37 @@ When deploying branded static sites via GitHub Pages, DNS and SSL latency can ma
 ## 🛠️ Reproducible Makefile Snippet
 
 ```makefile
-benchmark-dns:
-  dig levarc.com | grep "Query time"
+bench-dns:
+ @dig levarc.com | grep "Query time" || echo "❌ dig failed"
 
-benchmark-ssl:
-  openssl s_client -connect levarc.com:443 -servername levarc.com
-
-total-request-time:
-  curl -w "@curl-format.txt" -o /dev/null -s https://levarc.com
+bench-ssl:
+ @openssl s_client -connect levarc.com:443 -servername levarc.com < /dev/null | grep "Verify return code" \
+ || echo "❌ SSL check failed"
 
 cold-start:
-  time curl -s https://levarc.com > /dev/null
+ @echo "Cold-start latency:"
+ @time curl -s https://levarc.com > /dev/null
 
-benchmark-all:
-  @echo "DNS Lookup:"
-  @dig levarc.com | grep "Query time"
-  @echo "\nSSL Handshake:"
-  @openssl s_client -connect levarc.com:443 -servername levarc.com < /dev/null | grep "Verify return code"
-  @echo "\nCurl Breakdown:"
-  @curl -w "@curl-format.txt" -o /dev/null -s https://levarc.com
+dns-prop:
+ @for server in 1.1.1.1 8.8.8.8 9.9.9.9; do \
+  echo "Testing $$server..."; \
+  dig levarc.com @$$server | grep "levarc.com"; \
+ done
+
+total-time:
+ @curl -w "@data/curl-format.txt" -o /dev/null -s https://levarc.com
+
+bench-all:
+ @echo "DNS Lookup:"
+ @dig levarc.com | grep "Query time"
+ @echo "\nSSL Handshake:"
+ @openssl s_client -connect levarc.com:443 -servername levarc.com < /dev/null | grep "Verify return code"
+ @echo "\nCurl Breakdown:"
+ @curl -w "@data/curl-format.txt" -o /dev/null -s https://levarc.com
 ```
 
-```curl-format.txt
+```sh
+# curl-format.txt
 time_namelookup: %{time_namelookup}\n
 time_connect: %{time_connect}\n
 time_appconnect: %{time_appconnect}\n

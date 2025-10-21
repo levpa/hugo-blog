@@ -1,27 +1,35 @@
 {
   // 🧼 Core Editor Behavior
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
   "editor.codeActionsOnSave": [
     "source.fixAll"
   ],
+  "[makefile]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 2
+  },
   "cSpell.enabled": true,
   "cSpell.language": "en",
   "cSpell.enabledFileTypes": {
     "*": false,
     "markdown": true,
     "html": true,
-    "toml": true,
     "yaml": true
   },
+  "cSpell.ignorePaths": [
+    "**/node_modules/**",
+    "**/public/**",
+    "**/themes/**",
+    "**/.git/**",
+    "**/hugo.yaml/**"
+  ],
   "cSpell.words": [
     "levarc",
-    "levpa",
-    "Pasichnyi",
-    "whatsmydns"
+    "levpa"
   ],
   // 🧾 YAML for Hugo config
   "yaml.validate": true,

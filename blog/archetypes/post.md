@@ -8,7 +8,9 @@ tags: []
 categories: []
 author: 'Lev'
 summary: ''
-cover: ''
+cover:
+  image: "/images/{{ .File.ContentBaseName }}-cover.png"
+  alt: "Cover image for {{ replace .File.ContentBaseName "-" " " | title }}"
 canonicalURL: ''
 toc: true
 keywords: []

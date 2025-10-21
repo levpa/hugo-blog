@@ -1,0 +1,5 @@
+{{ with .Site.Params.contact.email }}
+  <div style="text-align: center; font-size: 0.85rem; margin-top: 1rem;">
+    <a href="mailto:{{ . }}">{{ . }}</a>
+  </div>
+{{ end }}

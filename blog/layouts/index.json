@@ -1,0 +1,12 @@
+{{- $latest := index .Site.RegularPages 0 -}}
+{
+  "site": "{{ .Site.Title }}",
+  "description": "{{ .Site.Params.description }}",
+  "latestPost": {
+    "title": "{{ $latest.Title }}",
+    "url": "{{ $latest.RelPermalink }}"
+  },
+  "contact": {
+    "email": "{{ .Site.Params.contact.email }}"
+  }
+}

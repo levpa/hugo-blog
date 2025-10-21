@@ -1,11 +1,112 @@
 baseURL: https://levarc.com/
-params:
-  env: production
-
 languageCode: en-us
-title: My New Hugo Site
+title: " "
 
 theme: "PaperMod"
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+services:
+  googleAnalytics:
+    ID: G-KWYLJH7QDH
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production
+  author: Lev Pasichnyi
+  subtitle: "All about tech"
+  description: "Cloud-native automation, DevOps strategy, and reproducible workflows — from consulting to delivery."
+  keywords:
+    ["Blog", "Automation", "DevOps", "SRE", "Azure", "Cloud", "Architecture"]
+  DateFormat: "January 2, 2006"
+
+  defaultTheme: auto
+  disableThemeToggle: false
+  disableScrollToTop: false
+  disableSpecial1stPost: false
+
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  showtoc: false
+  tocopen: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+  assets:
+    favicon: /img/favicon.ico
+    favicon16x16: /img/favicon-16x16.png
+    favicon32x32: /img/favicon-32x32.png
+    apple_touch_icon: /img/apple-touch-icon.png
+    safari_pinned_tab: /img/safari-pinned-tab.svg
+
+  label:
+    text: ""
+    icon: /img/apple-touch-icon.png
+    iconHeight: 40
+
+  cover:
+    hidden: false
+    hiddenInList: false
+    hiddenInSingle: false
+
+  contact:
+    email: support@levarc.com
+
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: true
+    noHl: false
+    style: monokai
+    tabWidth: 4
+
+menu:
+  main:
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: github
+      name: GitHub
+      url: https://github.com/levpa
+      weight: 30
 
 resources:
   toCSS:

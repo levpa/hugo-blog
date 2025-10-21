@@ -1,6 +1,10 @@
-.PHONY: chlog precommit release verify
+.PHONY: chlog precommit release verify config
 
 HUGO := blog
+
+config:
+	@hugo config -s $(HUGO) || echo "❌ Config validation failed"
+
 new-post:
 	@if [ -z "$(POST)" ]; then echo "Error: POST name required"; exit 1; fi
 	hugo new post/$(POST).md -s $(HUGO)
@@ -40,7 +44,7 @@ BUMP_TYPE ?= patch
 
 release:
 	@echo "🚀 Releasing version bump..."
-	bash scripts/bump.sh $(BUMP_TYPE)
+	@bash scripts/bump.sh $(BUMP_TYPE)
 
 CHLOG_LENGTH ?= 20
 BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
@@ -84,3 +88,31 @@ chlog:
 
 	@rm -f .chlog-seen
 	@cat CHANGELOG.md
+
+bench-dns:
+	@dig levarc.com | grep "Query time" || echo "❌ dig failed"
+
+bench-ssl:
+	@openssl s_client -connect levarc.com:443 -servername levarc.com < /dev/null | grep "Verify return code" \
+	|| echo "❌ SSL check failed"
+
+cold-start:
+	@echo "Cold-start latency:"
+	@time curl -s https://levarc.com > /dev/null
+
+dns-prop:
+	@for server in 1.1.1.1 8.8.8.8 9.9.9.9; do \
+		echo "Testing $$server..."; \
+		dig levarc.com @$$server | grep "levarc.com"; \
+	done
+
+total-time:
+	@curl -w "@data/curl-format.txt" -o /dev/null -s https://levarc.com
+
+bench-all:
+	@echo "DNS Lookup:"
+	@dig levarc.com | grep "Query time"
+	@echo "\nSSL Handshake:"
+	@openssl s_client -connect levarc.com:443 -servername levarc.com < /dev/null | grep "Verify return code"
+	@echo "\nCurl Breakdown:"
+	@curl -w "@data/curl-format.txt" -o /dev/null -s https://levarc.com
