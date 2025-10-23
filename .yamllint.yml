@@ -1,15 +1,14 @@
-# .yamllint.yml
-extends: default
-
 rules:
   document-start:
-    present: false # GitHub workflows don't require ---
+    present: false
   truthy:
     allowed-values: ["true", "false", "on", "off", "yes", "no"]
-    check-keys: false # Avoid false positives on GitHub keys like `on`
+    check-keys: false
   line-length:
-    max: 130 # Allow longer lines for Docker tags, GH metadata, etc.
+    max: 130
     level: warning
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
   indentation:
     spaces: 2
     indent-sequences: true

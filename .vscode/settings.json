@@ -1,7 +1,9 @@
 {
   // 🧼 Core Editor Behavior
-  "editor.formatOnSave": false,
-  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
@@ -10,6 +12,7 @@
   ],
   "[makefile]": {
     "editor.insertSpaces": false,
+    "editor.detectIndentation": false,
     "editor.tabSize": 2
   },
   "cSpell.enabled": true,
@@ -28,8 +31,10 @@
     "**/hugo.yaml/**"
   ],
   "cSpell.words": [
+    "lastmod",
     "levarc",
-    "levpa"
+    "levpa",
+    "Pasichnyi"
   ],
   // 🧾 YAML for Hugo config
   "yaml.validate": true,
@@ -45,5 +50,5 @@
   "gitlens.statusBar.enabled": true,
   // 📁 Path Intellisense for theme and asset navigation
   "path-intellisense.autoSlashAfterDirectory": true,
-  "path-intellisense.extensionOnImport": true,
+  "path-intellisense.extensionOnImport": true
 }

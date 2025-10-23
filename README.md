@@ -14,6 +14,9 @@ git submodule update --init --recursive
 ## Create local dev environment
 
 ```sh
+# install precommit hook (local validations)
+make precommit
+
 # configure your auth and signing in ~/.ssh folder and .gitconfig
 /home/<user>/.ssh
 ├── allowed_signers
@@ -39,22 +42,18 @@ Ctrl + Shift + P: Dev Containers: Rebuild Container (opt: without Cache)
 Create post:
 
 ```sh
-# create post from template: archetypes/post.md
-hugo new --kind post <name>
+# create post from archetype: archetypes/post.md
+make new-post
 
-# or
-hugo new posts/hello-world.md
-```
+# draft development
+make serve
 
-Observe or test site locally:
+# publish drafts for release
+make publish-drafts
 
-```sh
-hugo serve --buildDrafts
-
-# or execute with arguments:
-hugo --buildDrafts    # or -D
-hugo --buildExpired   # or -E
-hugo --buildFuture    # or -F
+# git add/commit/push changes
+# deploy new release to github-pages
+make release
 ```
 
 [Web Server is at localhost:1313](http://localhost:1313/)

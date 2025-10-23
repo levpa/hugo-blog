@@ -4,7 +4,6 @@ title: " "
 
 theme: "PaperMod"
 
-enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
@@ -23,6 +22,12 @@ outputs:
     - RSS
     - JSON
 
+enableGitInfo: true
+enableRobotsTXT: true
+
+permalinks:
+  post: /:year/:slug
+
 params:
   env: production
   author: Lev Pasichnyi
@@ -31,6 +36,8 @@ params:
   keywords:
     ["Blog", "Automation", "DevOps", "SRE", "Azure", "Cloud", "Architecture"]
   DateFormat: "January 2, 2006"
+  LastModFormat: "January 2, 2006"
+
 
   defaultTheme: auto
   disableThemeToggle: false
@@ -91,7 +98,7 @@ markup:
     noClasses: true
     noHl: false
     style: monokai
-    tabWidth: 4
+    tabWidth: 2
 
 menu:
   main:

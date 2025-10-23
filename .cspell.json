@@ -1,0 +1,5 @@
+{
+  "ignoreRegExpList": [
+    "/```[\\s\\S]*?```/" // Ignores fenced code blocks
+  ]
+}

@@ -1,15 +1,17 @@
 ---
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 date: '{{ .Date }}'
-draft: true
-description: '{{ replace .File.ContentBaseName "-" " " | humanize }}'
 slug: '{{ .File.ContentBaseName }}'
+draft: true
+description: >
+  {{ replace .File.ContentBaseName "-" " " | humanize }}
 tags: []
 categories: []
 author: 'Lev'
-summary: ''
+summary: >
+  ''
 cover:
-  image: "/images/{{ .File.ContentBaseName }}-cover.png"
+  image: "{{ .File.ContentBaseName }}.png"
   alt: "Cover image for {{ replace .File.ContentBaseName "-" " " | title }}"
 canonicalURL: ''
 toc: true
