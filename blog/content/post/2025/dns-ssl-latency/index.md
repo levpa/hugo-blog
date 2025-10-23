@@ -13,7 +13,7 @@ summary: >
   This post benchmarks DNS and SSL latency for GitHub Pages using apex-safe ALIAS records and strategic redirect setups. 
   Includes reproducible test cases and latency charts.
 cover:
-  image: "cover.jpg"
+  image: "dns-ssl-latency.png"
   alt: "Latency benchmarking chart for DNS and SSL"
 canonicalURL: "https://levarc.com/post/dns-ssl-benchmark"
 toc: true
