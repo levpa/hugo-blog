@@ -36,7 +36,7 @@ for DOMAIN in "${DOMAINS[@]}"; do
   echo "Total: $((end - start)) ms"
 
   echo -e "\n🌐 DNS Propagation:"
-  foGitHubr server in "${RESOLVERS[@]}"; do
+  for server in "${RESOLVERS[@]}"; do
     echo "Testing $server..."
     dig "$DOMAIN" @"$server" | grep "$DOMAIN" || echo "❌ No response from $server"
   done

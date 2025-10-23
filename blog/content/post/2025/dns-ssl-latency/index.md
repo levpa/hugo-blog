@@ -32,7 +32,7 @@ When deploying branded static sites via GitHub Pages, DNS and SSL latency can ma
 ## Test Setup
 
 - **Domains tested**: `levarc.com`, `www.levarc.com`
-- **DNS provider**: [Hosting Ukraine](ukraine.com.ua)
+- **DNS provider**: [Hosting Ukraine](https://www.ukraine.com.ua)
 - **GitHub Pages target**: `levpa.github.io`
 - **Record types**:
   - `levarc.com` → ALIAS → `levpa.github.io`
@@ -47,7 +47,6 @@ When deploying branded static sites via GitHub Pages, DNS and SSL latency can ma
 |------------------|---------|-----------------|-------------------|-----------|-----------------|-----------------|
 | `levarc.com`     | ALIAS   | 1.27            | 56.79             | 85.19     | 85.62           | 98              |
 | `www.levarc.com` | ALIAS   | 1.63            | 58.85             | 87.95     | 87.99           | 92              |
-
 
 **Insight**: ALIAS records at apex and subdomain reduce DNS lookup time by ~20ms and improve SSL provisioning reliability.
 
