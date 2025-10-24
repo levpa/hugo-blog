@@ -1,7 +1,6 @@
 ---
 title: "Benchmarking DNS and SSL Latency for GitHub Pages"
 date: "2025-10-21T09:48:47Z"
-draft: false
 description: >
   A reproducible benchmark of DNS resolution and SSL handshake latency for GitHub Pages 
   using ALIAS records and apex domain strategies.

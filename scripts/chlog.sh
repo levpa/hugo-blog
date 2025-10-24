@@ -9,30 +9,30 @@ OUT="CHANGELOG.md"
 SEEN=".chlog-seen"
 
 # Header
-echo "# Changelog for $VERSION" > "$OUT"
-echo "## Date: $DATE" >> "$OUT"
+echo -e "# Changelog for $VERSION\n" > "$OUT"
+echo -e "## Date: $DATE\n" >> "$OUT"
 rm -f "$SEEN"
 
 # ✨ Features
-echo -e "\n### ✨ Features" >> "$OUT"
+echo -e "### ✨ Features\n" >> "$OUT"
 git log -n "$CHLOG_LENGTH" --grep="^feat" --pretty=format:"- %h %d %s (%ad)" --date=relative \
   | tee -a "$OUT" | cut -d' ' -f2 >> "$SEEN"
 echo "" >> "$OUT"
 
 # 🐛 Fixes
-echo -e "\n### 🐛 Fixes" >> "$OUT"
+echo -e "\n### 🐛 Fixes\n" >> "$OUT"
 git log -n "$CHLOG_LENGTH" --grep="^fix" --pretty=format:"- %h %d %s (%ad)" --date=relative \
   | tee -a "$OUT" | cut -d' ' -f2 >> "$SEEN"
 echo "" >> "$OUT"
 
 # 🧹 Chores & Refactors
-echo -e "\n### 🧹 Chores & Refactors" >> "$OUT"
-git log -n "$CHLOG_LENGTH" --grep="^chore\|^refactor" --pretty=format:"- %h %d %s (%ad)" --date=relative \
+echo -e "\n### 🧹 Chores\n" >> "$OUT"
+git log -n "$CHLOG_LENGTH" --grep="^chore" --pretty=format:"- %h %d %s (%ad)" --date=relative \
   | tee -a "$OUT" | cut -d' ' -f2 >> "$SEEN"
 echo "" >> "$OUT"
 
 # 📌 Other Commits
-echo -e "\n### 📌 Other Commits" >> "$OUT"
+echo -e "\n### 📌 Other Commits\n" >> "$OUT"
 git log -n "$CHLOG_LENGTH" --pretty=format:"- %h %d %s (%ad)" --date=relative | while read -r line; do
   hash=$(echo "$line" | cut -d' ' -f2)
   grep -q "$hash" "$SEEN" || echo "$line" >> "$OUT"

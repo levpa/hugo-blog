@@ -48,8 +48,8 @@ make new-post
 # draft development
 make serve
 
-# publish drafts for release
-make publish-drafts
+# add/commit/push
+git cmp "feat: new blog feature" # feat/fix/chore - changelog filtering
 
 # git add/commit/push changes
 # deploy new release to github-pages
@@ -58,18 +58,19 @@ make release
 
 [Web Server is at localhost:1313](http://localhost:1313/)
 
-### Utility
+### Utilities
 
 ```sh
-
-# Create icons for the site with ImageMagick
+# Create icons and covers/labels for site with ImageMagick
 convert --version
-convert input.png -define icon:auto-resize=64,48,32,16 favicon.ico
-convert label.png -resize 40x40 label-icon.png
+convert favicon.png -define icon:auto-resize=64,48,32,16 favicon.ico
+convert post-cover.png -resize 960x post-cover.png
+convert label.png -resize 200x label.png
+convert site-icon.png -resize 40x40 site-icon.png
 
 # Windows /Pictures and /Documents folder binds here:
 ls $HOME/Pictures $HOME/Documents
 
-# Example to copy from Windows
+# Example to copy picture from Windows folder
 cp $HOME/Pictures/profile/profile.png blog/content/about
 ```
