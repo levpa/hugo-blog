@@ -57,9 +57,9 @@
     {{- end }}
   </footer>
 
-  {{ if .Site.Params.giscus.enabled }}
+  {{ if and (eq .Type "post") (.Param "comments") }}
     {{ partial "comments.html" . }}
   {{ end }}
 </article>
 
-{{- end }}{{/* end main */}}
+{{- end }}

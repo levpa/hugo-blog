@@ -57,7 +57,9 @@ When deploying branded static sites via GitHub Pages, DNS and SSL latency can ma
 - ✅ Add `<link rel="preconnect">` to preload DNS and SSL
 - ✅ Benchmark with cold-start tools and automate with Makefile targets
 
-## 🛠️ Bash script
+## 🛠️ Script
+
+{{< collapse summary="Show/Hide Script source" >}}
 
 ```bash
 #!/usr/bin/env bash
@@ -79,7 +81,8 @@ for DOMAIN in "${DOMAINS[@]}"; do
   echo "=============================="
 
   echo -e "\n🔐 SSL Handshake (cert, hostname, errors validation):"
-  if ! openssl s_client -connect "$DOMAIN:443" -servername "$DOMAIN" < /dev/null 2>/dev/null | grep "Verify return code"; then
+  if ! openssl s_client -connect "$DOMAIN:443" -servername "$DOMAIN" \
+  < /dev/null 2>/dev/null | grep "Verify return code"; then
     echo "❌ SSL check failed"
   fi
 
@@ -120,7 +123,11 @@ awk '
 '
 ```
 
-## 🛠️ Expected output
+{{< /collapse >}}
+
+## 📈 Output
+
+{{< collapse summary="Show/Hide Script output" >}}
 
 ```bash
  $ make bench-all
@@ -131,7 +138,7 @@ awk '
 
 🔐 SSL Handshake (cert, hostname, errors validation):
 Verify return code: 0 (ok)
-    Verify return code: 0 (ok)
+  Verify return code: 0 (ok)
 
 🔍 DNS Lookup:
 ;; Query time: 0 msec
@@ -214,3 +221,5 @@ HTTP/2 200
 🔑 Cipher:     Cipher    : TLS_AES_128_GCM_SHA256
 ✅ Trust Status:     Verify return code: 0 (ok)
 ```
+
+{{< /collapse >}}

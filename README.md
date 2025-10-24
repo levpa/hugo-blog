@@ -57,3 +57,19 @@ make release
 ```
 
 [Web Server is at localhost:1313](http://localhost:1313/)
+
+### Utility
+
+```sh
+
+# Create icons for the site with ImageMagick
+convert --version
+convert input.png -define icon:auto-resize=64,48,32,16 favicon.ico
+convert label.png -resize 40x40 label-icon.png
+
+# Windows /Pictures and /Documents folder binds here:
+ls $HOME/Pictures $HOME/Documents
+
+# Example to copy from Windows
+cp $HOME/Pictures/profile/profile.png blog/content/about
+```

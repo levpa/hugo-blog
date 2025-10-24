@@ -15,6 +15,12 @@
     "editor.detectIndentation": false,
     "editor.tabSize": 2
   },
+  "[markdown]": {
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 130,
+  "editor.rulers": [130],
+  "editor.wrappingIndent": "same"
+},
   "cSpell.enabled": true,
   "cSpell.language": "en",
   "cSpell.enabledFileTypes": {
@@ -34,7 +40,8 @@
     "lastmod",
     "levarc",
     "levpa",
-    "Pasichnyi"
+    "Pasichnyi",
+    "Uzhhorod"
   ],
   // 🧾 YAML for Hugo config
   "yaml.validate": true,

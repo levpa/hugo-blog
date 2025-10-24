@@ -38,9 +38,6 @@ params:
   DateFormat: "January 2, 2006"
   LastModFormat: "January 2, 2006"
 
-  giscus:
-    enabled: true
-
   defaultTheme: auto
   disableThemeToggle: false
   disableScrollToTop: false
@@ -55,8 +52,8 @@ params:
   UseHugoToc: true
   showtoc: false
   tocopen: false
-  comments: false
-  hidemeta: false
+  comments: true
+  hidemeta: true
   hideSummary: false
 
   fuseOpts:
@@ -69,16 +66,12 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 
   assets:
-    favicon: /img/favicon.ico
-    favicon16x16: /img/favicon-16x16.png
-    favicon32x32: /img/favicon-32x32.png
-    apple_touch_icon: /img/apple-touch-icon.png
-    safari_pinned_tab: /img/safari-pinned-tab.svg
+    favicon: /favicon.ico
 
   label:
     text: ""
-    icon: /img/apple-touch-icon.png
-    iconHeight: 40
+    icon: /auto-transp.png
+    iconHeight: 60
 
   cover:
     hidden: false
@@ -102,6 +95,11 @@ markup:
     style: monokai
     tabWidth: 2
 
+  goldmark:
+    renderer:
+      unsafe: true
+
+
 menu:
   main:
     - identifier: categories
@@ -113,8 +111,8 @@ menu:
       url: /tags/
       weight: 20
     - identifier: github
-      name: GitHub
-      url: https://github.com/levpa
+      name: About
+      url: /about
       weight: 30
 
 resources:

@@ -4,7 +4,10 @@
   "mounts": [
     "source=/run/host-services/ssh-auth.sock,target=/ssh-agent,type=bind",
     "source=${env:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached",
-    "source=${env:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind,consistency=cached"
+    "source=${env:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind,consistency=cached",
+
+    "source=/mnt/c/Users/levpa/OneDrive/Pictures,target=/home/node/Pictures,type=bind,readOnly=true",
+    "source=/mnt/c/Users/levpa/OneDrive/Documents,target=/home/node/Documents,type=bind,readOnly=true"
   ],
   "containerEnv": {
     "SSH_AUTH_SOCK": "/ssh-agent"

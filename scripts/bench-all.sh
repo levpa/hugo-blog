@@ -17,7 +17,8 @@ for DOMAIN in "${DOMAINS[@]}"; do
   echo "=============================="
 
   echo -e "\n🔐 SSL Handshake (cert, hostname, errors validation):"
-  if ! openssl s_client -connect "$DOMAIN:443" -servername "$DOMAIN" < /dev/null 2>/dev/null | grep "Verify return code"; then
+  if ! openssl s_client -connect "$DOMAIN:443" -servername "$DOMAIN" \
+  < /dev/null 2>/dev/null | grep "Verify return code"; then
     echo "❌ SSL check failed"
   fi
 
