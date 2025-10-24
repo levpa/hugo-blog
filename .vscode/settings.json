@@ -1,7 +1,7 @@
 {
   // 🧼 Core Editor Behavior
   "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
+  "editor.formatOnPaste": false,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1000,
   "editor.insertSpaces": true,

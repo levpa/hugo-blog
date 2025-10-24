@@ -38,6 +38,8 @@ params:
   DateFormat: "January 2, 2006"
   LastModFormat: "January 2, 2006"
 
+  giscus:
+    enabled: true
 
   defaultTheme: auto
   disableThemeToggle: false
