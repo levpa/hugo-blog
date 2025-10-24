@@ -43,18 +43,15 @@ params:
   disableScrollToTop: false
   disableSpecial1stPost: false
 
-  ShowReadingTime: true
   ShowPostNavLinks: true
-  ShowBreadCrumbs: true
+  ShowBreadCrumbs: false
   ShowCodeCopyButtons: true
-  ShowWordCount: false
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
   showtoc: false
   tocopen: false
   comments: true
-  hidemeta: true
-  hideSummary: false
+  hidemeta: false
 
   fuseOpts:
     isCaseSensitive: false
@@ -98,7 +95,6 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-
 
 menu:
   main:
