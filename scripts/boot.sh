@@ -8,7 +8,8 @@ echo "$(dig -v && nslookup -version && host -V && mdig -v && traceroute -V && if
 echo "✅ system utils:"
 echo "$(tree --version)"
 
-echo "✅ $(gh version)"
+echo "✅ $(git --version)"
+echo "✅ GitHub CLI: $(gh version)"
 echo "✅ $(yamllint --version)"
 echo "✅ markdownlint: $(markdownlint --version)"
 echo "✅ $(hugo version | awk '{print $1, $2}')"
