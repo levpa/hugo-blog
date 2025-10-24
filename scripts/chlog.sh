@@ -37,7 +37,6 @@ git log -n "$CHLOG_LENGTH" --pretty=format:"- %h %d %s (%ad)" --date=relative | 
   hash=$(echo "$line" | cut -d' ' -f2)
   grep -q "$hash" "$SEEN" || echo "$line" >> "$OUT"
 done
-echo "" >> "$OUT"
 
 # Cleanup commit decorations
 sed -i -E \
