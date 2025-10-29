@@ -4,7 +4,7 @@ slug: '{{ .File.ContentBaseName }}'
 date: '{{ .Date }}'
 author: 'Lev Pasichnyi'
 type: 'services'
-layout: 'service'
+layout: 'services'
 section: 'services'
 description: >
   {{ replace .File.ContentBaseName "-" " " | humanize }}

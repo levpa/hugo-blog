@@ -12,7 +12,7 @@ config:
 	@hugo config -s $(HUGO_WORKDIR) || echo "❌ Config validation failed"
 
 serve:
-	@hugo serve -D -s blog
+	@hugo serve --buildDrafts --cleanDestinationDir --disableFastRender -s blog
 
 publish-drafts:
 	@echo "🚀 Publishing all drafts..."
@@ -34,7 +34,7 @@ endef
 new-post:
 	@read -p "Enter post slug: " slug; \
 	$(sanitize_slug); \
-	hugo new "post/$(YEAR)/$(MONTH)/$$slug_sanitized/index.md" -s blog
+	hugo new "posts/$(YEAR)/$(MONTH)/$$slug_sanitized/index.md" -s blog
 
 new-page:
 	@read -p "Enter page slug: " slug; \

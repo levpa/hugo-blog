@@ -1,11 +1,6 @@
 baseURL: https://levarc.com/
 title: " "
-
 theme: PaperMod
-
-buildDrafts: false
-buildFuture: false
-buildExpired: false
 
 minify:
   disableXML: true
@@ -32,7 +27,7 @@ paginattion:
 permalinks:
   posts: /:year/:month/:slug
   page : /:slug
-  services: /services/:slug
+  services: /:slug
 
 params:
   env: production
@@ -45,11 +40,10 @@ params:
   DateFormat: January 2, 2006
   LastModFormat: January 2, 2006
 
-  defaultTheme: auto
-  disableThemeToggle: false
-  disableScrollToTop: false
-  disableSpecial1stPost: false
-
+  homeInfoParams:
+    Title: "LevArc — DevOps, Automation & Cloud"
+    Content: "Delivering reproducible DevOps automation and scalable infrastructure."
+ 
   ShowPostNavLinks: true
   ShowBreadCrumbs: false
   ShowCodeCopyButtons: true
@@ -57,8 +51,9 @@ params:
   UseHugoToc: true
   showtoc: false
   tocopen: false
-  comments: true
   hidemeta: false
+
+  comments: true
 
   fuseOpts:
     isCaseSensitive: false
