@@ -1,5 +1,5 @@
 ---
-title: "🔧 LevArc Services"
+title: "Services"
 slug: "services"
 url: "/services/"
 type: "page"
@@ -15,6 +15,8 @@ aliases:
   - "/services/devops"
   - "/consulting/devops"
 toc: true
+---
+
 ---
 
 At LevArc, we specialize in delivering reproducible, scalable infrastructure and automation solutions tailored to your business
@@ -35,12 +37,12 @@ clarity and technical precision to every engagement.
 ### CI/CD & Automation
 
 - GitHub Actions, Azure DevOps, and multi-stage YAML pipelines  
-- Bash & Python scripting for diagnostics, backups, and release automation  
-- Fastlane automation for mobile app delivery (Google Play, App Store, Intune)
+- Bash & Python scripting for CI/CD, cloud and release automation  
+- Fastlane automation for mobile app delivery (Google Play, App Store)
 
 ### Infrastructure Reliability
 
-- PostgreSQL, MongoDB, Cosmos DB, and MS SQL management  
+- PostgreSQL, MySQL, MongoDB, Cosmos DB management  
 - Linux hardening, incident resolution, and backup strategies  
 - Blue/Green deployments and private networking
 
