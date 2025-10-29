@@ -6,11 +6,10 @@ update-phony:
 	sed -i "s/^\.PHONY:.*/.PHONY: $$targets/" Makefile; \
 	echo "✅ .PHONY updated with: $$targets"
 
-HUGO := blog
-YEAR := $(shell date +%Y)
+HUGO_WORKDIR := blog
 
 config:
-	@hugo config -s $(HUGO) || echo "❌ Config validation failed"
+	@hugo config -s $(HUGO_WORKDIR) || echo "❌ Config validation failed"
 
 serve:
 	@hugo serve -D -s blog
@@ -24,9 +23,20 @@ publish-drafts:
 		fi \
 	done
 
+YEAR := $(shell date +%Y)
+MONTH := $(shell date +%m)
+
 new-post:
 	@read -p "Enter post slug: " slug; \
-	hugo new "post/$(YEAR)/$$slug/index.md" -s blog
+	hugo new "post/$(YEAR)/$(MONTH)/$$slug/index.md" -s blog
+
+new-page:
+	@read -p "Enter page slug: " slug; \
+	hugo new "page/$$slug/index.md" -s blog
+
+new-service:
+	@read -p "Enter service slug: " slug; \
+	hugo new "services/$$slug/index.md" -s blog
 
 verify:
 	@echo "🔍 Verifying Hugo environment..."

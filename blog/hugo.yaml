@@ -26,7 +26,9 @@ enableGitInfo: true
 enableRobotsTXT: true
 
 permalinks:
-  post: /:year/:slug
+    posts: /:year/:month/:slug
+    page : /:slug
+    services: /services/:slug
 
 params:
   env: production
@@ -98,18 +100,27 @@ markup:
 
 menu:
   main:
-    - identifier: categories
-      name: Categories
-      url: /categories/
+    - name: About
+      url: /about/
       weight: 10
-    - identifier: tags
-      name: Tags
-      url: /tags/
+
+    - name: Services
+      identifier: services
+      url: /services/
       weight: 20
-    - identifier: github
-      name: About
-      url: /about
+
+    - name: Topics
+      url: /categories/
       weight: 30
+
+    - name: Latest
+      identifier: latest
+      url: /blog/
+      weight: 40
+
+    - name: Contact
+      url: /contact/
+      weight: 50
 
 resources:
   toCSS:

@@ -2,22 +2,19 @@
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 slug: '{{ .File.ContentBaseName }}'
 date: '{{ .Date }}'
-type: 'post'
 description: >
   {{ replace .File.ContentBaseName "-" " " | humanize }}
 summary: >
   ''
 author: 'Lev Pasichnyi'
-layout: 'post'
+layout: 'page'
 canonicalURL: ''
 keywords: []
 aliases: []
-tags: []
-categories: [devops, performance]
-series: ''
 cover:
   image: "{{ .File.ContentBaseName }}.png"
   alt: "Cover image for {{ replace .File.ContentBaseName "-" " " | title }}"
 toc: true
 draft: false
+type: 'page'
 ---

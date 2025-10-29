@@ -44,6 +44,8 @@ Create post:
 ```sh
 # create post from archetype: archetypes/post.md
 make new-post
+make new-page
+make new-service
 
 # draft development
 make serve
