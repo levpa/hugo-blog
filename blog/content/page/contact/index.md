@@ -1,6 +1,7 @@
 ---
 title: "Let's Connect"
 slug: "contact"
+url: "/contact/"
 date: "2025-10-29T12:37:52Z"
 type: "page"
 description: "Get in touch with Lev Pasichnyi — DevOps Consultant and Cloud Architect"

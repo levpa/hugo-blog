@@ -96,7 +96,6 @@ markup:
 menu:
   main:
     - name: Services
-      identifier: services
       url: /services/
       weight: 10
 

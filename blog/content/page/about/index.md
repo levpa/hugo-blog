@@ -2,6 +2,7 @@
 title: "About"
 type: "page"
 slug: "about"
+url: "/about/"
 ---
 
 <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">

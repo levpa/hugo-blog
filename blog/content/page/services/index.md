@@ -1,6 +1,7 @@
 ---
 title: "🔧 LevArc Services"
 slug: "services"
+url: "/services/"
 type: "page"
 keywords:
   - DevOps consulting
