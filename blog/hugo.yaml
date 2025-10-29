@@ -1,8 +1,7 @@
 baseURL: https://levarc.com/
-languageCode: en-us
 title: " "
 
-theme: "PaperMod"
+theme: PaperMod
 
 buildDrafts: false
 buildFuture: false
@@ -24,6 +23,11 @@ outputs:
 
 enableGitInfo: true
 enableRobotsTXT: true
+languageCode: en-us
+defaultContentLanguage: en
+canonifyURLs: true
+paginattion:
+  pagerSize: 10
 
 permalinks:
     posts: /:year/:month/:slug
@@ -33,12 +37,13 @@ permalinks:
 params:
   env: production
   author: Lev Pasichnyi
-  subtitle: "All about tech"
-  description: "Cloud-native automation, DevOps strategy, and reproducible workflows — from consulting to delivery."
+  subtitle: All about tech
+  description: >
+    LevArc delivers reproducible DevOps automation, cloud-native diagnostics, and strategic consulting for scalable infrastructure.
   keywords:
-    ["Blog", "Automation", "DevOps", "SRE", "Azure", "Cloud", "Architecture"]
-  DateFormat: "January 2, 2006"
-  LastModFormat: "January 2, 2006"
+    ["Blog", "Automation", "DevOps", "SRE", "Azure", "AWS", "Solution architecture"]
+  DateFormat: January 2, 2006
+  LastModFormat: January 2, 2006
 
   defaultTheme: auto
   disableThemeToggle: false
