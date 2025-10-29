@@ -30,9 +30,9 @@ paginattion:
   pagerSize: 10
 
 permalinks:
-    posts: /:year/:month/:slug
-    page : /:slug
-    services: /services/:slug
+  posts: /:year/:month/:slug
+  page : /:slug
+  services: /services/:slug
 
 params:
   env: production
@@ -120,7 +120,7 @@ menu:
 
     - name: Latest
       identifier: latest
-      url: /blog/
+      url: /latest/
       weight: 40
 
     - name: Contact

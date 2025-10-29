@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <h1 style="margin-bottom: 2rem;">Latest Posts</h1>
+  <section class="latest-posts">
+    <ul>
+      {{ range first 10 (where .Site.RegularPages "Type" "post") }}
+        <li>
+          <article>
+            <h2>
+              <a href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">{{ .Title }}</a>
+            </h2>
+            <small>
+              {{ with .Lastmod }}Updated: {{ .Format "Jan 2, 2006" }}{{ else }}Published: {{ .Date.Format "Jan 2, 2006" }}{{ end }}
+            </small>
+            {{ with .Summary }}
+              <p>{{ . }}</p>
+            {{ end }}
+          </article>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}

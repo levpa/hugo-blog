@@ -17,7 +17,6 @@ cover:
   image: "{{ .File.ContentBaseName }}.png"
   alt: "Cover image for {{ replace .File.ContentBaseName "-" " " | title }}"
 tags: []
-categories: ['services']
 series: 'LevArc Consulting Suite'
 toc: true
 ---

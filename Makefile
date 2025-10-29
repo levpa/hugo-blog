@@ -26,17 +26,25 @@ publish-drafts:
 YEAR := $(shell date +%Y)
 MONTH := $(shell date +%m)
 
+define sanitize_slug
+slug_sanitized=$$(echo "$$slug" | tr '[:upper:]' '[:lower:]' \
+  | sed -e 's/[^a-z0-9 ]//g' -e 's/[[:space:]]\+/-/g' -e 's/-\+$$//')
+endef
+
 new-post:
 	@read -p "Enter post slug: " slug; \
-	hugo new "post/$(YEAR)/$(MONTH)/$$slug/index.md" -s blog
+	$(sanitize_slug); \
+	hugo new "post/$(YEAR)/$(MONTH)/$$slug_sanitized/index.md" -s blog
 
 new-page:
 	@read -p "Enter page slug: " slug; \
-	hugo new "page/$$slug/index.md" -s blog
+	$(sanitize_slug); \
+	hugo new "page/$$slug_sanitized/index.md" -s blog
 
 new-service:
 	@read -p "Enter service slug: " slug; \
-	hugo new "services/$$slug/index.md" -s blog
+	$(sanitize_slug); \
+	hugo new "services/$$slug_sanitized/index.md" -s blog
 
 verify:
 	@echo "🔍 Verifying Hugo environment..."
