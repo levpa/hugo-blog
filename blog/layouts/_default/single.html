@@ -57,9 +57,29 @@
     {{- end }}
   </footer>
 
+  {{/*  comments added to the post  */}}
   {{ if and (eq .Type "post") (.Param "comments") }}
-    {{ partial "comments.html" . }}
+    <div id="giscus-container"></div>
+    <script>
+      const script = document.createElement("script");
+      script.src = "https://giscus.app/client.js";
+      script.setAttribute("data-repo", "levpa/hugo-blog");
+      script.setAttribute("data-repo-id", "R_kgDOQFqwpQ");
+      script.setAttribute("data-category", "Announcements");
+      script.setAttribute("data-category-id", "DIC_kwDOQFqwpc4CxAY0");
+      script.setAttribute("data-mapping", "pathname");
+      script.setAttribute("data-strict", "0");
+      script.setAttribute("data-reactions-enabled", "0");
+      script.setAttribute("data-emit-metadata", "0");
+      script.setAttribute("data-input-position", "top");
+      script.setAttribute("data-theme", "dark_dimmed");
+      script.setAttribute("data-lang", "en");
+      script.setAttribute("data-loading", "lazy");
+      script.crossOrigin = "anonymous";
+      script.async = true;
+      document.getElementById("giscus-container").appendChild(script);
+    </script>
   {{ end }}
 </article>
 
-{{- end }}
+{{- end }}{{/* end main */}}

@@ -1,16 +1,15 @@
 ---
-title: "Contact"
+title: "Let's Connect"
 slug: "contact"
 date: "2025-10-29T12:37:52Z"
 type: "page"
 description: "Get in touch with Lev Pasichnyi — DevOps Consultant and Cloud Architect"
 summary: "Reach out for consulting, automation, or infrastructure support. Based in Uzhhorod, Ukraine — available globally."
 author: "Lev Pasichnyi"
-draft: false
 toc: false
 ---
 
-## Let's Connect
+---
 
 Whether you're launching scalable infrastructure, optimizing cloud workflows, or seeking strategic DevOps
 consulting — I'm here to help.

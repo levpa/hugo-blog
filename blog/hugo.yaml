@@ -14,7 +14,6 @@ outputs:
   home:
     - HTML
     - RSS
-    - JSON
 
 enableGitInfo: true
 enableRobotsTXT: true
@@ -39,21 +38,20 @@ params:
     ["Blog", "Automation", "DevOps", "SRE", "Azure", "AWS", "Solution architecture"]
   DateFormat: January 2, 2006
   LastModFormat: January 2, 2006
-
-  homeInfoParams:
-    Title: "LevArc — DevOps, Automation & Cloud"
-    Content: "Delivering reproducible DevOps automation and scalable infrastructure."
  
   ShowPostNavLinks: true
   ShowBreadCrumbs: false
+  showReadingTime: true
   ShowCodeCopyButtons: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
   showtoc: false
   tocopen: false
-  hidemeta: false
-
+  hidemeta: true
   comments: true
+
+  giscus:
+    enabled: true
 
   fuseOpts:
     isCaseSensitive: false
@@ -77,9 +75,6 @@ params:
     hiddenInList: false
     hiddenInSingle: false
 
-  contact:
-    email: support@levarc.com
-
 markup:
   highlight:
     anchorLineNos: false
@@ -100,32 +95,27 @@ markup:
 
 menu:
   main:
-    - name: About
-      url: /about/
-      weight: 10
-
     - name: Services
       identifier: services
       url: /services/
+      weight: 10
+
+    - name: About
+      url: /about/
       weight: 20
 
     - name: Topics
       url: /categories/
       weight: 30
 
-    - name: Latest
-      identifier: latest
-      url: /latest/
-      weight: 40
-
     - name: Contact
       url: /contact/
-      weight: 50
-
-resources:
-  toCSS:
-    transpiler: dartsass
+      weight: 40
 
 caches:
   images:
     dir: :cacheDir/images
+
+resources:
+  toCSS:
+    transpiler: dartsass

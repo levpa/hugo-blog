@@ -1,0 +1,31 @@
+{{ define "main" }}
+  <h1 style="margin-bottom: 2rem;">Latest news:</h1>
+  <section class="latest-posts">
+    <ul>
+      {{ range first 10 (where .Site.RegularPages "Type" "post") }}
+        {{ $post := . }}
+        <li>
+          <article style="margin-bottom: 2rem;">
+            {{ with $post.Resources.GetMatch $post.Params.cover.image }}
+              <div class="post-cover" style="margin-bottom: 1rem;">
+                <a href="{{ $post.RelPermalink }}" aria-label="Read {{ $post.Title }}">
+                  <img src="{{ .RelPermalink }}" alt="{{ $post.Params.cover.alt | default $post.Title }}" style="max-width: 100%; height: auto;" />
+                </a>
+              </div>
+            {{ end }}
+
+            <h2>
+              <a href="{{ $post.RelPermalink }}" aria-label="Read {{ $post.Title }}">{{ $post.Title }}</a>
+            </h2>
+            <small>
+              {{ with $post.Lastmod }}Updated: {{ .Format "Jan 2, 2006" }}{{ else }}Published: {{ $post.Date.Format "Jan 2, 2006" }}{{ end }}
+            </small>
+            {{ with $post.Summary }}
+              <p>{{ . }}</p>
+            {{ end }}
+          </article>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}
