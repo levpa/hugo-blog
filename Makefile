@@ -56,6 +56,7 @@ verify:
 	@bash -c 'echo "✅ convert: $$(convert --version | head -n1 | cut -d" " -f3)"'
 	@bash -c 'echo "✅ Node: $$(node -v)"'
 	@bash -c 'echo "✅ npm: $$(npm -v)"'
+	@bash -c 'echo "✅ GoLang: $$(go version | cut -d" " -f3)"'
 	@bash -c 'echo "✅ Python: $$(pip3 --version | awk '\''{print $$2}'\'')"'
 	@echo ""
 	@echo "✅ Environment verification complete."
@@ -69,6 +70,9 @@ lint:
 
 	@echo "📝 Linting Markdown content..."
 	@npx markdownlint-cli "**/*.md" --config .markdownlint.json
+
+	@hugo -s $(HUGO_WORKDIR)
+	@htmltest --conf .htmltest.yml $(HUGO_WORKDIR)/public
 
 BUMP_TYPE ?= patch
 

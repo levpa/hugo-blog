@@ -21,9 +21,7 @@ cat > "$HOOK_PATH" <<'EOF'
 set -e
 
 make update-phony
-make verify
 make lint
-
 EOF
 
 chmod +x "$HOOK_PATH"

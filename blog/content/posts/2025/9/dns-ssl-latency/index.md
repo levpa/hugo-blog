@@ -16,7 +16,7 @@ summary: >
 cover:
   image: "dns-ssl-latency.png"
   alt: "Latency benchmarking chart for DNS and SSL"
-canonicalURL: "https://levarc.com/post/dns-ssl-benchmark"
+canonicalURL: "https://levarc.com/2025/10/dns-ssl-benchmark/"
 toc: true
 keywords: ["dns", "ssl", "latency", "domain"]
 series: "LevArc Infrastructure Insights"

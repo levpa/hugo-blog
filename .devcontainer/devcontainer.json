@@ -5,22 +5,16 @@
     "source=/run/host-services/ssh-auth.sock,target=/ssh-agent,type=bind",
     "source=${env:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached",
     "source=${env:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind,consistency=cached",
-    "source=/mnt/c/Users/levpa/OneDrive/Pictures,target=/home/node/Pictures,type=bind,readOnly=true",
+    "source=/mnt/c/Users/levpa/OneDrive/Pictures,target=/home/node/Pictures,type=bind,readOnly=true"
   ],
   "containerEnv": {
     "SSH_AUTH_SOCK": "/ssh-agent"
   },
   "features": {
-    "ghcr.io/devcontainers/features/hugo:1": {
-      "extended": true,
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers-extra/features/markdownlint-cli:1": {
-      "version": "latest"
-    }, 
-    "ghcr.io/devcontainers-extra/features/yamllint:2": {
-      "version": "latest"
-    }
+    "ghcr.io/devcontainers/features/hugo:1": {},
+    "ghcr.io/devcontainers-extra/features/markdownlint-cli:1": {}, 
+    "ghcr.io/devcontainers-extra/features/yamllint:2": {},
+    "ghcr.io/devcontainers/features/go:1": {}
   },
   "customizations": {
     "vscode": {
