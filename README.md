@@ -39,26 +39,24 @@ Ctrl + Shift + P: Dev Containers: Rebuild Container (opt: without Cache)
 
 ## Development
 
-Create post:
-
 ```sh
+# check stack versions
+make verify
+
 # create post from archetype: archetypes/post.md
 make new-post
 make new-page
-make new-service
 
-# draft development
+# local server run
 make serve
+# Web Server is available at http://localhost:1313/
 
-# add/commit/push
-git cmp "feat: new blog feature" # feat/fix/chore - changelog filtering
+# add/commit/push alias
+git cmp "feat: new blog feature" # feat/fix/chore - named commits used in changelog filtering
 
-# git add/commit/push changes
-# deploy new release to github-pages
+# deploy new release(create and push new tag) to github-pages
 make release
 ```
-
-[Web Server is at localhost:1313](http://localhost:1313/)
 
 ### Utilities
 

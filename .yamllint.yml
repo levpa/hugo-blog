@@ -4,11 +4,7 @@ rules:
   truthy:
     allowed-values: ["true", "false", "on", "off", "yes", "no"]
     check-keys: false
-  line-length:
-    max: 130
-    level: warning
-    allow-non-breakable-words: true
-    allow-non-breakable-inline-mappings: true
+  line-length: disable
   indentation:
     spaces: 2
     indent-sequences: true

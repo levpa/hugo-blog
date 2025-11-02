@@ -1,4 +1,4 @@
-.PHONY: bench-all chlog config lint new-post precommit publish-drafts release serve update-phony verify
+.PHONY: chlog lint new-page new-post publish-drafts release serve update-phony verify
 
 update-phony:
 	@echo "🔄 Updating .PHONY line in Makefile..."
@@ -8,15 +8,12 @@ update-phony:
 
 HUGO_WORKDIR := blog
 
-config:
-	@hugo config -s $(HUGO_WORKDIR) || echo "❌ Config validation failed"
-
 serve:
-	@hugo serve --buildDrafts --cleanDestinationDir --disableFastRender -s blog
+	@hugo serve --buildDrafts --cleanDestinationDir --disableFastRender -s $(HUGO_WORKDIR)
 
 publish-drafts:
 	@echo "🚀 Publishing all drafts..."
-	@find blog/content/post/$(YEAR) -name '*.md' | while read file; do \
+	@find $(HUGO_WORKDIR)/content/post/$(YEAR) -name '*.md' | while read file; do \
 		if grep -q '^draft: true' "$$file"; then \
 			sed -i 's/^draft: true/draft: false/' "$$file"; \
 			echo "✅ Published: $$file"; \
@@ -34,44 +31,44 @@ endef
 new-post:
 	@read -p "Enter post slug: " slug; \
 	$(sanitize_slug); \
-	hugo new "posts/$(YEAR)/$(MONTH)/$$slug_sanitized/index.md" -s blog
+	hugo new "posts/$(YEAR)/$(MONTH)/$$slug_sanitized/index.md" -s $(HUGO_WORKDIR)
 
 new-page:
 	@read -p "Enter page slug: " slug; \
 	$(sanitize_slug); \
-	hugo new "page/$$slug_sanitized/index.md" -s blog
-
-new-service:
-	@read -p "Enter service slug: " slug; \
-	$(sanitize_slug); \
-	hugo new "services/$$slug_sanitized/index.md" -s blog
+	hugo new "page/$$slug_sanitized/index.md" -s $(HUGO_WORKDIR)
 
 verify:
-	@echo "🔍 Verifying Hugo environment..."
-	@echo "Dart Sass: $(sass --version)"
-	@echo "Go: $(go version)"
-	@echo "Hugo: $(hugo version)"
-	@echo "Node.js: $(node --version && npm --version)"
+	@echo "🔍 Verifying DNS/network tools..."
+	@bash -c 'echo "✅ dig: $$(dig -v 2>&1 | head -n1)"'
+	@bash -c 'echo "✅ nslookup: $$(nslookup -version 2>&1 | head -n1)"'
+	@bash -c 'echo "✅ host: $$(host -V 2>&1 | head -n1)"'
+	@bash -c 'echo "✅ ifconfig: $$(ifconfig -V 2>&1 | head -n1)"'
+	@echo ""
+	@echo "🔍 Verifying system tools..."
+	@bash -c 'echo "✅ tree: $$(tree --version | awk '\''{print $$2}'\'')"'
+	@bash -c 'echo "✅ make: $$(make --version | head -n1 | awk '\''{print $$3}'\'')"'
+	@bash -c 'echo "✅ bash: $$(bash --version | head -n1 | awk '\''{print $$4}'\'')"'
+	@bash -c 'echo "✅ $$(git --version)"'
+	@bash -c 'echo "✅ yamllint: $$(yamllint --version)"'
+	@bash -c 'echo "✅ markdownlint: $$(markdownlint --version)"'
+	@bash -c 'echo "✅ hugo: $$(hugo version | awk '\''{split($$2,a,"-"); print $$1, a[1]}'\'')"'
+	@bash -c 'echo "✅ convert: $$(convert --version | head -n1 | cut -d" " -f3)"'
+	@bash -c 'echo "✅ Node: $$(node -v)"'
+	@bash -c 'echo "✅ npm: $$(npm -v)"'
+	@bash -c 'echo "✅ Python: $$(pip3 --version | awk '\''{print $$2}'\'')"'
+	@echo ""
 	@echo "✅ Environment verification complete."
 
 lint:
-	@echo "🔍 Linting YAML workflows..."
+	@echo "🔍 Linting GitHub workflows..."
 	@yamllint .github/workflows
 
-	@echo "🔍 Linting YAML front matter in Markdown files..."
-	@find blog/content -name '*.md' | while read file; do \
-		echo "--- $$file ---"; \
-		awk '/^---$$/,/^---$$/' "$$file" | sed '1d;$$d' | yamllint -f parsable - || true; \
-	done
-
-	@echo "🧾 Linting Hugo config..."
-	@yamllint blog/hugo.yaml
+	@echo "🧾 Linting hugo.yaml config ..."
+	@yamllint $(HUGO_WORKDIR)/hugo.yaml
 
 	@echo "📝 Linting Markdown content..."
-	@markdownlint-cli "**/*.md" --config .markdownlint.json
-
-precommit:
-	bash ./scripts/hook.sh
+	@npx markdownlint-cli "**/*.md" --config .markdownlint.json
 
 BUMP_TYPE ?= patch
 
@@ -79,11 +76,5 @@ release:
 	@echo "🚀 Releasing version bump..."
 	@bash scripts/bump.sh $(BUMP_TYPE)
 
-CHLOG_LENGTH ?= 20
-
 chlog:
-	@CHLOG_LENGTH=$(CHLOG_LENGTH) bash scripts/chlog.sh
-
-
-bench-all:
-	@bash scripts/bench-all.sh
+	@CHLOG_LENGTH=20 bash scripts/chlog.sh

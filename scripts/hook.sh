@@ -20,13 +20,8 @@ cat > "$HOOK_PATH" <<'EOF'
 #!/usr/bin/env bash
 set -e
 
-echo "Makefile fix"
 make update-phony
-
-echo "🔍 Running make verify..."
 make verify
-
-echo "🧪 Running make lint..."
 make lint
 
 EOF

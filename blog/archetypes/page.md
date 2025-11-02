@@ -16,4 +16,5 @@ cover:
   image: "{{ .File.ContentBaseName }}.png"
   alt: "Cover image for {{ replace .File.ContentBaseName "-" " " | title }}"
 toc: true
+draft: false
 ---
