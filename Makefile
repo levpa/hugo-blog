@@ -1,4 +1,4 @@
-.PHONY: chlog lint release serve verify update-phony
+.PHONY: chlog lint release serve update-phony verify
 
 update-phony:
 	@echo "🔄 Updating .PHONY line in Makefile..."
