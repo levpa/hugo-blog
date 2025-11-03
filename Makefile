@@ -1,4 +1,4 @@
-.PHONY: chlog lint new-page new-post publish-drafts release serve update-phony verify
+.PHONY: chlog lint new-page new-post release serve update-phony verify
 
 update-phony:
 	@echo "🔄 Updating .PHONY line in Makefile..."
@@ -10,15 +10,6 @@ HUGO_WORKDIR := blog
 
 serve:
 	@hugo serve --buildDrafts --cleanDestinationDir --disableFastRender -s $(HUGO_WORKDIR)
-
-publish-drafts:
-	@echo "🚀 Publishing all drafts..."
-	@find $(HUGO_WORKDIR)/content/post/$(YEAR) -name '*.md' | while read file; do \
-		if grep -q '^draft: true' "$$file"; then \
-			sed -i 's/^draft: true/draft: false/' "$$file"; \
-			echo "✅ Published: $$file"; \
-		fi \
-	done
 
 YEAR := $(shell date +%Y)
 MONTH := $(shell date +%m)
@@ -71,8 +62,10 @@ lint:
 	@echo "📝 Linting Markdown content..."
 	@npx markdownlint-cli "**/*.md" --config .markdownlint.json
 
-	@rm -rf $(HUGO_WORKDIR)/public && hugo -s $(HUGO_WORKDIR)
-	@htmltest --conf .htmltest.yml $(HUGO_WORKDIR)/public
+	@rm -rf $(HUGO_WORKDIR)/public && hugo -s $(HUGO_WORKDIR) --quiet
+
+	@echo "🔍 Broken links check with htmltest ..."
+	@htmltest --conf .htmltest.yml
 
 BUMP_TYPE ?= patch
 
