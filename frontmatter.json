@@ -28,7 +28,14 @@
         {
           "title": "Title",
           "name": "title",
-          "type": "string"
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Slug",
+          "name": "slug",
+          "type": "string",
+          "description": "URL-friendly version of the title"
         },
         {
           "title": "Description",
@@ -36,16 +43,40 @@
           "type": "string"
         },
         {
-          "title": "Publishing date",
+          "title": "Cover",
+          "name": "cover",
+          "type": "fields",
+          "fields": [
+            {
+              "title": "Image",
+              "name": "image",
+              "type": "image"
+            },
+            {
+              "title": "Alt text",
+              "name": "alt",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "title": "Date",
           "name": "date",
           "type": "datetime",
           "default": "{{now}}",
           "isPublishDate": true
         },
         {
-          "title": "Is in draft",
+          "title": "Table of contents",
+          "name": "toc",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "title": "Draft",
           "name": "draft",
-          "type": "draft"
+          "type": "boolean",
+          "default": false
         }
       ]
     },
@@ -58,7 +89,14 @@
         {
           "title": "Title",
           "name": "title",
-          "type": "string"
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Slug",
+          "name": "slug",
+          "type": "string",
+          "description": "URL-friendly version of the title"
         },
         {
           "title": "Description",
@@ -66,49 +104,40 @@
           "type": "string"
         },
         {
-          "title": "Publishing date",
+          "title": "Publish date",
           "name": "date",
           "type": "datetime",
           "default": "{{now}}",
           "isPublishDate": true
         },
         {
-          "title": "Last modified date",
+          "title": "Last modified",
           "name": "lastmod",
           "type": "datetime",
           "isModifiedDate": true
         },
         {
-          "title": "Article preview",
-          "name": "preview",
-          "type": "image"
+          "title": "Author",
+          "name": "author",
+          "type": "string",
+          "default": "Lev Pasichnyi"
         },
         {
-          "title": "Photo",
+          "title": "Cover",
+          "name": "cover",
           "type": "fields",
-          "name": "photo",
           "fields": [
             {
-              "title": "Title",
-              "name": "title",
-              "type": "string"
+              "title": "Image",
+              "name": "image",
+              "type": "image"
             },
             {
-              "title": "URL",
-              "name": "url",
-              "type": "image"
+              "title": "Alt text",
+              "name": "alt",
+              "type": "string"
             }
           ]
-        },
-        {
-          "title": "Is in draft",
-          "name": "draft",
-          "type": "draft"
-        },
-        {
-          "title": "Navigation weight",
-          "name": "weight",
-          "type": "number"
         },
         {
           "title": "Tags",
@@ -119,6 +148,18 @@
           "title": "Categories",
           "name": "categories",
           "type": "categories"
+        },
+        {
+          "title": "Table of contents",
+          "name": "toc",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "title": "Draft",
+          "name": "draft",
+          "type": "boolean",
+          "default": false
         }
       ]
     }
