@@ -1,7 +1,7 @@
 # ci files
 CHANGELOG.md
 **/*/PaperMod.diff
-tmp/
+.htmltest
 
 # ─── Hugo ─────────────────────────────────────────────
 **/public/

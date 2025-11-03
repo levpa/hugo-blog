@@ -1,3 +1,4 @@
 DirectoryPath: blog/public/
 IgnoreURLs:
 - https://www.upwork.com/freelancers/~0190365aefef7fecb0
+OutputDir: .htmltest
