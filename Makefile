@@ -1,4 +1,4 @@
-.PHONY: chlog lint release serve update-phony verify
+.PHONY: chlog lint release serve verify update-phony
 
 update-phony:
 	@echo "🔄 Updating .PHONY line in Makefile..."
@@ -20,27 +20,22 @@ slug_sanitized=$$(echo "$$slug" | tr '[:upper:]' '[:lower:]' \
 endef
 
 verify:
-	@echo "🔍 Verifying DNS/network tools..."
-	@bash -c 'echo "✅ dig: $$(dig -v 2>&1 | head -n1)"'
-	@bash -c 'echo "✅ nslookup: $$(nslookup -version 2>&1 | head -n1)"'
-	@bash -c 'echo "✅ host: $$(host -V 2>&1 | head -n1)"'
-	@bash -c 'echo "✅ ifconfig: $$(ifconfig -V 2>&1 | head -n1)"'
-	@echo ""
 	@echo "🔍 Verifying system tools..."
-	@bash -c 'echo "✅ tree: $$(tree --version | awk '\''{print $$2}'\'')"'
-	@bash -c 'echo "✅ make: $$(make --version | head -n1 | awk '\''{print $$3}'\'')"'
-	@bash -c 'echo "✅ bash: $$(bash --version | head -n1 | awk '\''{print $$4}'\'')"'
-	@bash -c 'echo "✅ $$(git --version)"'
-	@bash -c 'echo "✅ yamllint: $$(yamllint --version)"'
-	@bash -c 'echo "✅ markdownlint: $$(markdownlint --version)"'
-	@bash -c 'echo "✅ hugo: $$(hugo version | awk '\''{split($$2,a,"-"); print $$1, a[1]}'\'')"'
-	@bash -c 'echo "✅ convert: $$(convert --version | head -n1 | cut -d" " -f3)"'
-	@bash -c 'echo "✅ Node: $$(node -v)"'
-	@bash -c 'echo "✅ npm: $$(npm -v)"'
-	@bash -c 'echo "✅ GoLang: $$(go version | cut -d" " -f3)"'
-	@bash -c 'echo "✅ Python: $$(pip3 --version | awk '\''{print $$2}'\'')"'
 	@echo ""
-	@echo "✅ Environment verification complete."
+	@echo "✅ make: $(shell make --version | head -n1 | awk '{print $$3}')"
+	@echo "✅ bash: $(shell bash --version | head -n1 | awk '{print $$4}')"
+	@echo "✅ $(shell git --version)"
+	@echo "✅ yamllint: $(shell yamllint --version)"
+	@echo "✅ markdownlint: $(shell markdownlint --version)"
+	@echo "✅ hugo: $(shell hugo version | awk '{split($$2,a,"-"); print $$1, a[1]}')"
+	@echo "✅ convert: $(shell convert --version | head -n1 | cut -d" " -f3)"
+	@echo "✅ Node: $(shell node -v)"
+	@echo "✅ npm: $(shell npm -v)"
+	@echo "✅ GoLang: $(shell go version | cut -d" " -f3)"
+	@echo "✅ Python: $(shell pip3 --version | awk '{print $$2}')"
+	@echo "✅ htmltest: $(shell htmltest -v)"
+	@echo ""
+	@echo "✅ Verification complete."
 
 lint:
 	@echo "🔍 Linting GitHub workflows..."
