@@ -4,11 +4,9 @@
     {
       "label": "Serve Hugo Blog",
       "type": "shell",
-      "command": "hugo",
+      "command": "make",
       "args": [
-        "serve",
-        "-s",
-        "blog"
+        "serve"
       ],
       "group": {
         "kind": "build",

@@ -71,7 +71,7 @@ lint:
 	@echo "📝 Linting Markdown content..."
 	@npx markdownlint-cli "**/*.md" --config .markdownlint.json
 
-	@hugo -s $(HUGO_WORKDIR)
+	@rm -rf $(HUGO_WORKDIR)/public && hugo -s $(HUGO_WORKDIR)
 	@htmltest --conf .htmltest.yml $(HUGO_WORKDIR)/public
 
 BUMP_TYPE ?= patch

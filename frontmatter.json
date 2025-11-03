@@ -1,0 +1,33 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "hugo",
+  "frontMatter.framework.startCommand": "make serve",
+  "frontMatter.content.publicFolder": "blog/static",
+  "frontMatter.preview.host": "http://localhost:1313",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "Pages",
+      "path": "[[workspace]]/blog/content/page",
+      "contentTypes": ["page"]
+    },
+    {
+      "title": "Posts",
+      "path": "[[workspace]]/blog/content/posts",
+      "contentTypes": ["post"]
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "page",
+      "pageBundle": true,
+      "template": "[[workspace]]/.frontmatter/templates/page.md",
+      "fields": []
+    },
+    {
+      "name": "post",
+      "pageBundle": true,
+      "template": "[[workspace]]/.frontmatter/templates/post.md",
+      "fields": []
+    }
+  ]
+}

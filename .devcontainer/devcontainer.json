@@ -20,13 +20,13 @@
     "vscode": {
       "extensions": [
         "budparr.language-hugo-vscode",
-        "esbenp.prettier-vscode",
         "streetsidesoftware.code-spell-checker",
         "github.vscode-github-actions",
         "eamodio.gitlens",
         "redhat.vscode-yaml",
         "christian-kohler.path-intellisense",
-        "davidanson.vscode-markdownlint"
+        "davidanson.vscode-markdownlint",
+        "eliostruyf.vscode-front-matter"
       ]
     }
   },
