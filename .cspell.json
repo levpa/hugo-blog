@@ -1,5 +1,5 @@
 {
   "ignoreRegExpList": [
-    "/```[\\s\\S]*?```/" // Ignores fenced code blocks
+    "/```[\\s\\S]*?```/" // Ignores code blocks for code spell checker
   ]
 }

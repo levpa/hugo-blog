@@ -1,4 +1,4 @@
-.PHONY: chlog lint new-page new-post release serve update-phony verify
+.PHONY: chlog lint release serve update-phony verify
 
 update-phony:
 	@echo "🔄 Updating .PHONY line in Makefile..."
@@ -18,16 +18,6 @@ define sanitize_slug
 slug_sanitized=$$(echo "$$slug" | tr '[:upper:]' '[:lower:]' \
   | sed -e 's/[^a-z0-9 ]//g' -e 's/[[:space:]]\+/-/g' -e 's/-\+$$//')
 endef
-
-new-post:
-	@read -p "Enter post slug: " slug; \
-	$(sanitize_slug); \
-	hugo new "posts/$(YEAR)/$(MONTH)/$$slug_sanitized/index.md" -s $(HUGO_WORKDIR)
-
-new-page:
-	@read -p "Enter page slug: " slug; \
-	$(sanitize_slug); \
-	hugo new "page/$$slug_sanitized/index.md" -s $(HUGO_WORKDIR)
 
 verify:
 	@echo "🔍 Verifying DNS/network tools..."
