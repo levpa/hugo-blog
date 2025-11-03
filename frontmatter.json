@@ -8,11 +8,13 @@
     {
       "title": "Pages",
       "path": "[[workspace]]/blog/content/page",
+      "trailingSlash": true,
       "contentTypes": ["page"]
     },
     {
       "title": "Posts",
-      "path": "[[workspace]]/blog/content/posts",
+      "path": "[[workspace]]/blog/content/posts/{{year}}/{{month}}",
+      "trailingSlash": true,
       "contentTypes": ["post"]
     }
   ],
@@ -20,14 +22,105 @@
     {
       "name": "page",
       "pageBundle": true,
-      "template": "[[workspace]]/.frontmatter/templates/page.md",
-      "fields": []
+      "filePrefix": null,
+      "slugTemplate": "{{title}}",
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        }
+      ]
     },
     {
       "name": "post",
       "pageBundle": true,
-      "template": "[[workspace]]/.frontmatter/templates/post.md",
-      "fields": []
+      "filePrefix": null,
+      "slugTemplate": "{{title}}",
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Last modified date",
+          "name": "lastmod",
+          "type": "datetime",
+          "isModifiedDate": true
+        },
+        {
+          "title": "Article preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Photo",
+          "type": "fields",
+          "name": "photo",
+          "fields": [
+            {
+              "title": "Title",
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "title": "URL",
+              "name": "url",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Navigation weight",
+          "name": "weight",
+          "type": "number"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        }
+      ]
     }
   ]
 }
