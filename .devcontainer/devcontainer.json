@@ -11,7 +11,10 @@
     "SSH_AUTH_SOCK": "/ssh-agent"
   },
   "features": {
-    "ghcr.io/devcontainers/features/hugo:1": {},
+    "ghcr.io/devcontainers/features/hugo:1": {
+      "version": "latest",
+      "extended": true
+    },
     "ghcr.io/devcontainers-extra/features/markdownlint-cli:1": {}, 
     "ghcr.io/devcontainers-extra/features/yamllint:2": {},
     "ghcr.io/devcontainers/features/go:1": {}

@@ -5,7 +5,8 @@ set -euo pipefail
 ./scripts/hook.sh
 
 # install markdownlint-cli
-npm ci
+export NPM_CONFIG_UPDATE_NOTIFIER=false
+npm install
 
 # htmltest for link checking
 go install github.com/wjdp/htmltest@latest
